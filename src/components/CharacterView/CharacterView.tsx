@@ -91,7 +91,7 @@ export function CharacterView() {
           🖨 Print
         </button>
         <button
-          className="btn btn-ghost"
+          className="btn btn-ghost btn-icon"
           onClick={() => {
             if (confirm(`Archive "${character.name || 'this character'}"? You can restore them from the roster.`)) {
               archiveCharacter(character.id)
