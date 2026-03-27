@@ -898,6 +898,21 @@ a {
   text-transform: uppercase;
 }
 
+/* ── Share sheet ── */
+.share-qr {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--parchment-dark);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius);
+}
+.share-qr svg {
+  display: block;
+  border-radius: 4px;
+}
+
 /* ── Share URL box ── */
 .share-url-box {
   display: flex;

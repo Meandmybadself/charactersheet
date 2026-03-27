@@ -18,6 +18,7 @@ import { CustomFieldsSection } from './sections/CustomFieldsSection'
 import { Modal } from '@/components/shared/Modal'
 import { buildShareURL } from '@/utils/encoding'
 import { totalLevel } from '@/utils/calc'
+import { QRCodeSVG } from 'qrcode.react'
 
 export function CharacterView() {
   const { activeCharacter, updateCharacter, archiveCharacter, goToRoster } = useStore()
@@ -155,6 +156,9 @@ export function CharacterView() {
             Share this URL to let others view and import <strong>{character.name}</strong> into their roster.
             The character data is encoded directly in the URL — no account needed.
           </p>
+          <div className="share-qr">
+            <QRCodeSVG value={shareUrl} size={160} bgColor="var(--parchment-dark)" fgColor="var(--ink)" />
+          </div>
           <div className="share-url-box">
             <input
               className="share-url-input"
@@ -162,6 +166,9 @@ export function CharacterView() {
               value={shareUrl}
               onFocus={e => e.target.select()}
             />
+            <button className="btn" onClick={e => { const inp = (e.currentTarget.parentElement as HTMLElement).querySelector('input'); inp?.select() }}>
+              Select All
+            </button>
             <button className="btn btn-primary" onClick={copyShareUrl}>
               {copied ? '✓ Copied!' : 'Copy'}
             </button>
